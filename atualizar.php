@@ -1,5 +1,5 @@
-<?php include_once"config.php"?> 
-<?php 
+<?php include_once "config.php" ?> 
+<?php
 $id = $_POST['id'];
 $nome = $_POST['nome'];
 $cnpj = $_POST['cnpj'];
@@ -7,7 +7,7 @@ $inscestadual = $_POST['inscestadual'];
 $responsavel = $_POST['responsavel'];
 $cpf = $_POST['cpf'];
 $rg = $_POST['rg'];
-$endereco = $_POST['endereco']; 
+$endereco = $_POST['endereco'];
 $num = $_POST['num'];
 $numcomp = $_POST['numcomp'];
 $bairro = $_POST['bairro'];
@@ -19,10 +19,11 @@ $obs = $_POST['obs'];
 
 $sql = "UPDATE tbclientes SET nome='$nome', cnpj='$cnpj', inscestadual='$inscestadual', responsavel='$responsavel', cpf='$cpf', rg='$rg', endereco='$endereco' ,num='$num', numcomp='$numcomp', bairro='$bairro' ,cidade='$cidade', estado='$estado' ,celular='$celular' , email='$email', obs='$obs' WHERE id='$id' ";
 
-if (mysqli_query($conn, $sql)){
-    header("Location: editar.php?id=$id");
- }else{
-    echo "Deu erro". $sql."<br>" . mysqli_error($conn);
- }
+if (mysqli_query($conn, $sql)) {
+   echo "<script>alert('Cadastro salvo com sucesso!');window.location='editar.php?id=$id';</script>";
+
+   } else {
+   echo "Deu erro" . $sql . "<br>" . mysqli_error($conn);
+}
 mysqli_close($conn);
 ?>

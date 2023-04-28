@@ -1,11 +1,11 @@
-<?php include_once"config.php";?>
-<?php 
-    $id = $_GET['id'];
-    $conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
-    mysqli_set_charset($conn, "utf8");
-    $result_nomes = "SELECT * FROM tbclientes WHERE id = '$id' LIMIT 1";
-    $resultado_nomes = mysqli_query($conn, $result_nomes);
-    WHILE($linha = mysqli_fetch_array($resultado_nomes)){
+<?php include_once "config.php"; ?>
+<?php
+$id = $_GET['id'];
+$conn = mysqli_connect($servidor, $dbusuario, $dbsenha, $dbname);
+mysqli_set_charset($conn, "utf8");
+$result_nomes = "SELECT * FROM tbclientes WHERE id = '$id' LIMIT 1";
+$resultado_nomes = mysqli_query($conn, $result_nomes);
+while ($linha = mysqli_fetch_array($resultado_nomes)) {
     $id = $linha['id'];
     $nome = $linha['nome'];
     $cnpj = $linha['cnpj'];
@@ -22,103 +22,107 @@
     $celular = $linha['celular'];
     $email = $linha['email'];
     $obs = $linha['obs'];
-    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de clientes</title>
+   
 </head>
+
 <body>
     <br>
-    <?php include_once "form_busca.php";?>
-    <br>
-    <form action="atualizar.php" method="post" name="cliente">
-        
-        
-        <label >Nome</label>
-        <input  type="text" name="nome" maxlength="150" value="<?php echo $nome;?>">
-        
-        
-        <input type="hidden" name="id" maxlength="150" value="<?php echo $id;?>">
+    <div class="container-fluid">
 
-        
-        <label >CNPJ</label>
-        <input  type="text" name="cnpj" maxlength="15" value="<?php echo $cnpj;?>">
-        
+        <?php include_once "form_busca.php"; ?>
 
-        
-        <label >Inscrição Estadual</label>
-        <input  type="text" name="inscestadual" maxlength="20" value="<?php echo $inscestadual;?>">
-        
+        <form action="atualizar.php" method="post" name="cliente">
 
-        
-        <label >Responsável</label>
-        <input  type="text" name="responsavel" maxlength="150" value="<?php echo $responsavel;?>">
-        
+            <div class="form col-md-4">
+                <label>Nome</label>
+                <input class="form-control" type="text" name="nome" maxlength="150"value="<?php echo $nome;?>" required>
+            </div>
 
-        
-        <label >CPF</label>
-        <input  type="text" name="cpf" maxlength="150" value="<?php echo $cpf;?>">
-        
+            <div class="form col-md-4">
+                <label>CNPJ</label>
+                <input class="form-control" type="text" name="cnpj" maxlength="15"value="<?php echo $cnpj;?>">
+            </div>
 
-        
-        <label >RG</label>
-        <input  type="text" name="rg" maxlength="150" value="<?php echo $rg;?>">
-        
+            <div class="form col-md-4">
+                <label>Inscrição Estadual</label>
+                <input class="form-control" type="text" name="inscestadual" maxlength="15">
+            </div>
 
-        
-        <label >Endereço</label>
-        <input  type="text" name="endereco" maxlength="150" value="<?php echo $endereco;?>">
-        
+            <div class="form col-md-2">
+                <label>Responsável</label>
+                <input class="form-control" type="text" name="responsavel" maxlength="30">
+            </div>
 
-        
-        <label >Número</label>
-        <input  type="text" name="num" maxlength="150" value="<?php echo $num;?>">
-        
+            <div class="form col-md-2">
+                <label>CPF</label>
+                <input class="form-control" type="text" id="cpf" name="cpf" maxlength="11">
+            </div>
 
-        
-        <label >Complemento</label>
-        <input  type="text" name="numcomp" maxlength="150" value="<?php echo $numcomp;?>">
-        
+            <div class="form col-md-2">
+                <label>RG</label>
+                <input class="form-control" type="text" name="rg" maxlength="15">
+            </div>
 
-        
-        <label >Bairro</label>
-        <input  type="text" name="bairro" maxlength="150" value="<?php echo $bairro;?>">
-        
+            <div class="form col-md-4">
+                <label>Endereço</label>
+                <input class="form-control" type="text" name="endereco" maxlength="100">
+            </div>
 
-        
-        <label >Cidade</label>
-        <input  type="text" name="cidade" maxlength="150" value="<?php echo $cidade;?>">
-        
+            <div class="form col-md-2">
+                <label>Número</label>
+                <input class="form-control" type="text" name="num" maxlength="10">
+            </div>
 
-        
-        <label >Estado</label>
-        <input class="form-control" type="text" name="estado" maxlength="150" value="<?php echo $estado;?>">
-        
+            <div class="form col-md-4">
+                <label>Complemento</label>
+                <input class="form-control" type="text" name="numcomp" maxlength="10">
+            </div>
 
-        
-        <label >Celular</label>
-        <input  type="text" name="celular" maxlength="150" value="<?php echo $celular;?>">
-        
+            <div class="form col-md-4">
+                <label>Bairro</label>
+                <input class="form-control" type="text" name="bairro" maxlength="30">
+            </div>
 
-        
-        <label >E-mail</label>
-        <input  type="text" name="email" maxlength="150" value="<?php echo $email;?>">
-        
+            <div class="form col-md-2">
+                <label>Cidade</label>
+                <input class="form-control" type="text" name="cidade" maxlength="30">
+            </div>
 
+            <div class="form col-md-2">
+                <label>Estado</label>
+                <input class="form-control" type="text" name="estado" maxlength="30">
+            </div>
 
-        
-        <label >Observação</label>
-        <input  type="text" name="obs" maxlength="150" value="<?php echo $obs;?>">
-        
+            <div class="form col-md-2">
+                <label>Celular</label>
+                <input class="form-control" type="text" id="celular" name="celular" maxlength="15">
+            </div>
 
-        <input type="submit" value="Enviar">
+            <div class="form col-md-4">
+                <label>E-mail</label>
+                <input class="form-control" type="text" name="email" maxlength="50">
+            </div>
 
-    </form>
-    
+            <div class="form col-md-4">
+                <label>Observação</label>
+                <input class="form-control" type="text" name="obs" maxlength="50">
+            </div>
+
+            <div class="form col-md-4">
+                <br>
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
 </body>
 </html>

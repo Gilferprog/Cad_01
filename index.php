@@ -21,6 +21,7 @@
 
 <body>
   <header>
+    <br>
     <nav>
       <ul>
         <li><a href="addtbc.php">Home</li></a>
@@ -28,17 +29,17 @@
       </ul>
     </nav>
     <style>
-      li {
+      header{
+        background-color: #142952;
+      }
 
+      li {
         display: inline;
         margin: 0px 0px 0px 20px;
         justify-content: space-between;
-
       }
     </style>
   </header>
-
-
 
   <div class="container-fluid">
     <table class="table table-hover" style="width:auto;">

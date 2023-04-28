@@ -10,8 +10,7 @@
 
 </head>
 <body>
-
-     <br>  
+    <br>  
     <div class="container-fluid">
     <?php include_once"form_busca.php";?>
         <form action="ainstbc.php" method="post" name="cliente">
@@ -96,5 +95,5 @@
             <input type="submit" value="Enviar">
             </div>
         </form>
-
-    
+</body>   
+</html>

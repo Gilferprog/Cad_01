@@ -47,7 +47,7 @@ while ($linha = mysqli_fetch_array($resultado_nomes)) {
 
             <div class="form col-md-2">
                 <label>Data</label>
-                <input class="form-control" type="text" name="data" maxlength="10" value="<?php echo $data; ?>" required>
+                <input class="form-control" type="text" name="data" id="data" maxlength="10" value="<?php echo $data;?>" placeholder="00/00/000" required>
 
                 <input type="hidden" name="id" maxlength="150" value="<?php echo $id; ?>">
             </div>

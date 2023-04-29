@@ -13,8 +13,7 @@
       if (confirm("Deseja deletar esse cadastro?"))
         document.forms[0].subimit();
       else
-        return false
-    }
+        return false}
   </script>
 
 </head>
@@ -29,7 +28,7 @@
       </ul>
     </nav>
     <style>
-      header{
+      header {
         background-color: #142952;
       }
 
@@ -46,6 +45,7 @@
       <thead>
         <tr>
           <th width="5%" style="text-align:left">Id</th>
+          <th width="10%" style="text-align:left">Data</th>
           <th width="20%" style="text-align:left">Nome</th>
           <th width="10%" style="text-align:left">Celular</th>
           <th width="10%" style="text-align:left">Cpf</th>
@@ -59,10 +59,16 @@
         echo '<thead>
               <tr>
                 <th width="5%" style="text-align:left">' . $linha['id'] . '</th>
+
+                <th width="10%" style="text-align:left">' . date('d/m/Y', strtotime($linha['data'])) . '</th>
+
                 <th width="20%" style="text-align:left">' . $linha['nome'] . '</th>
+
                 <th width="20%" style="text-align:left">' . $linha['celular'] . '</th>
+
                 <th width="20%" style="text-align:left">' . $linha['cpf'] . '</th>
-                <th width="10%" style="text-align:left"><a href="deletar.php?id=' . $linha['id'] . '" onclick="return deletar();"><i class="bi bi-trash"></i> | <a href="editar.php?id=' . $linha['id'] . '"><i class="bi bi-pencil-square"></i> </th>                           
+
+                <th width="10%" style="text-align:left"><a href=deletar.php?id='. $linha['id'].' onclick="return deletar();"><i class="bi bi-trash"></a></i> | <a href=editar.php?id='. $linha['id'].'><i class="bi bi-pencil-square"></a></i> </th>                           
               </tr>
             </thead>';
       }
